@@ -13,12 +13,9 @@ public class Dictionary {
 
     private final Map<String, String> dictionary;
 
-
     public Dictionary(File file) throws FileReadException, InvalidFileFormatException {
        this.dictionary = dictionaryReading(file);
     }
-
-
 
     private Map<String, String> dictionaryReading(File file) throws FileReadException {
         Map<String, String> dictionary = new HashMap<>();

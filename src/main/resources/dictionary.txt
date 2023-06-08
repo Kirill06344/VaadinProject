@@ -1,0 +1,144 @@
+people | люди
+family | семья
+woman | женщина
+man | мужчина
+girl | девочка
+boy | мальчик
+child | ребёнок
+friend | друг
+husband | муж
+wife | жена
+my | мой
+name | имя
+head | голова
+face | лицо
+hand | рука
+life | жизнь
+hour | час
+week | неделя
+day | день
+night | ночь
+month | месяц
+year | год
+time | время
+world | мир
+sun | солнце
+animal | животное
+tree | дерево
+water | вода
+food | еда
+fire | огонь
+heart | сердце
+country | страна
+city | город
+street | улица
+work | работа
+school | школа
+shop | магазин
+house | дом
+room | комната
+car | машина
+paper | бумага
+pen | ручка
+door | дверь
+chair | стул
+table | стол
+money | деньги
+be | быть
+have | иметь
+do | делать
+get | получать
+can | мочь
+feel | чувствовать
+live | жить
+love | любить
+want | хотеть
+say | сказать
+tell | говорить
+see | видеть
+hear | слышать
+listen to | слушать
+believe | верить
+take | брать
+give | давать
+to go | идти
+home | дом
+run | бежать
+walk | гулять
+come | приходить
+leave | покидать
+sit | сидеть
+stand | стоять
+make | делать
+know | знать
+understand | понимать
+remember | помнить
+think | думать
+bring | приносить
+find | находить
+lose | терять
+use | использовать
+work | работать
+study | учиться
+learn | учить
+ask | спрашивать
+answer | ответить
+let | позволять
+help | помогать
+begin | начинать
+play | играть
+write | писать
+read | читать
+turn | поворачивать
+meet | встретить
+change | изменить
+stop | останавливать
+open | открыть
+close | закрыть
+at a glance | моментально
+as a matter of fact | в сущности, фактически
+as a result | в итоге, в результате
+as a rule | обычно, как правило
+a great deal | множество
+a great many | несметное количество
+a little bit | немного
+а number of | ряд, много
+to be at a loss | находиться в недоумении
+to have a good time | провести хорошо время
+to take a seat | садиться
+to tell a lie | лгать
+to have a mind | намереваться
+to have a cold | простудиться
+to have a look | посмотреть
+to have a smoke | покурить
+to have a rest | отдыхать
+to be in bed | болеть
+to be home | пребывать дома
+to be at school | находиться в школе
+to be in town | находиться в городе
+to be on holiday | быть в отпуске
+to go by air | лететь самолетом
+to go home | идти домой
+to go to bed | идти спать
+to go to town | ехать в город
+to leave school | бросать обучение в школе
+to leave town | покидать город
+to make use of | использовать
+to take part | принимать участие
+to take place | иметь место, происходить
+by accident | непреднамеренно
+by and by | вскоре
+by and large | в общем и целом
+by chance | случайно
+by end of | к концу
+by example | по примеру
+by far | значительно
+by heart | наизусть
+by means of | посредством
+by mistake | по ошибке
+by no means | ни в коем случае не
+by the way | кстати
+by then | к тому времени
+by the rules | по правилам
+day by day | с каждым днем
+i | я
