@@ -1,0 +1,16 @@
+.chapter-button {
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+    vertical-align: middle;
+    width: 256px;
+    transition: transform 0.2s ease-in-out;
+    background: #2e419e;
+    color: #f9f9f9;
+}
+
+.chapter-button:hover {
+    transform: translateY(-5px);
+}
