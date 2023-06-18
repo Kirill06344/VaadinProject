@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class StreamMethods {
     public static double getAverageValue(List<Integer> list) {
         return list.stream().mapToInt(Integer::intValue).average().orElse(0.0);
