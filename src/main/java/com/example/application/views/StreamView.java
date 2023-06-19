@@ -1,11 +1,19 @@
 package com.example.application.views;
 
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.example.application.tasks.streams.EmptyCollectionException;
 import com.example.application.tasks.streams.StreamMethods;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
@@ -51,7 +59,84 @@ public class StreamView extends VerticalLayout {
         convertButton.addClassName("chapter-button");
         container.add(radioGroup, convertButton);
         container.setAlignItems(Alignment.BASELINE);
+
+        convertButton.addClickListener(e -> {
+            System.out.println(radioGroup.getValue());
+            String [] els = input.getValue().split(" ");
+            try {
+                switch (radioGroup.getValue()) {
+                    case "Average value" -> {
+                        double avg = streamApi.getAverageValue(Arrays.stream(els)
+                                .mapToInt(Integer::parseInt)
+                                .boxed()
+                                .toList()
+                        );
+                        result.setValue(String.valueOf(avg));
+                    }
+                    case "Transform strings" -> {
+                        var lStrs = streamApi.transformListOfStrings(Arrays.stream(els).toList());
+                        result.setValue(lStrs.toString());
+                    }
+                    case "List of squares" -> {
+                        var squares = streamApi.getListOfSquares(Arrays.stream(els)
+                                .mapToInt(Integer::parseInt)
+                                .boxed()
+                                .toList()
+                        );
+                        result.setValue(squares.toString());
+                    }
+                    case "Last element" -> {
+                        try {
+                            var last = streamApi.getLastElement(Arrays.stream(els).toList());
+                            result.setValue(last);
+                        } catch (EmptyCollectionException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                    case "Map from list" -> {
+                        var map = streamApi.createMapFromList(Arrays.stream(els).toList());
+                        result.setValue(map.toString());
+                    }
+                    case "Start letter" -> {
+                        var start = streamApi.getStringsStartingWithLetter(Arrays.stream(els).toList(), 'a');
+                        result.setValue(start.toString());
+                    }
+                    case "Sum of even" -> {
+                        int sum = streamApi.getSumOfEvenElements(
+                                Arrays.stream(els)
+                                        .mapToInt(Integer::parseInt)
+                                        .toArray()
+                        );
+                        result.setValue(String.valueOf(sum));
+                    }
+                }
+            } catch (NumberFormatException ex) {
+                createError(ex.getMessage());
+            }
+        });
+
         add(container);
+    }
+
+
+    private void createError(String error) {
+        Notification notification = new Notification();
+        notification.addThemeVariants(NotificationVariant.LUMO_ERROR);
+
+        Div text = new Div(new Text(error));
+
+        Button closeButton = new Button(new Icon("lumo", "cross"));
+        closeButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY_INLINE);
+        closeButton.getElement().setAttribute("aria-label", "Close");
+        closeButton.addClickListener(event -> {
+            notification.close();
+        });
+
+        HorizontalLayout layout = new HorizontalLayout(text, closeButton);
+        layout.setAlignItems(Alignment.CENTER);
+
+        notification.add(layout);
+        notification.open();
     }
 
     private void setUpResultField() {

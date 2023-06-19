@@ -14,17 +14,13 @@ import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
-import com.vaadin.flow.component.upload.MultiFileReceiver;
-import com.vaadin.flow.component.upload.Receiver;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
 import com.vaadin.flow.router.Route;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
@@ -40,9 +36,8 @@ public class TranslatorView extends VerticalLayout {
     public TranslatorView(File dictionaryFile) {
         translator = new Translator(dictionaryFile);
         setUpInputArea();
-        createTranslateButton();
-        setUpOutputArea();
         setUploadFileArea();
+        setUpOutputArea();
     }
 
     private void setUpInputArea() {
@@ -86,24 +81,6 @@ public class TranslatorView extends VerticalLayout {
         });
 
         add(uploadField, errorField);
-    }
-
-    private void createTranslateButton() {
-        Button button = new Button("Translate");
-        button.addThemeVariants(ButtonVariant.LUMO_TERTIARY_INLINE);
-        button.addClickListener(event -> {
-            try {
-                if (translator.getDictionary() == null) {
-                    throw new FileReadException("Dictionary didn't load, sorry.");
-                }
-                if (input.getValue().isEmpty()) {
-                    throw new FileReadException("Input is empty, write something.");
-                }
-            } catch (FileReadException e) {
-                createError(e.getMessage());
-            }
-        });
-        add(button);
     }
 
 
